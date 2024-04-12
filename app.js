@@ -8,7 +8,6 @@ var mongoose = require('mongoose');
 
 
 var app = express();
-
 mongoose.connect("mongodb://127.0.0.1:27017/TestS6").then(
   function () {
     console.log("connected");
@@ -47,7 +46,7 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 404);
   res.send({
     success: false,
-    data: "URL not found"
+    data: err.message
   });
 });
 
